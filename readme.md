@@ -119,28 +119,6 @@ YouTubeサイト上での検索リンクも利用できる。
 - 表示名の統一によって、過去の競技ルールを現行ルールに置き換えるわけではない。
 - DBの名前・説明文は自動翻訳されず、英語画面にも登録言語が残る場合がある。
 
-## 10. JSONと非表示機能
-
-通常画面にはJSON取得リンクと任意SQL入力欄を表示しない。
-JSON取得は `/xxapijson/score/27722` のように演技IDを指定する。
-点数・審判配列等を含み、DB固有IDや内部管理情報を極力除いた採点表形式となる。
-旧 `/api/score/27722` は利用できない。
-任意SQLのバックエンドは残っているため、入口を隠すことを認証とはみなさない。
-
-## 11. ローカル起動
-
-DOS窓でapp.pyのあるフォルダへ移動し、実行する。
-
-```cmd
-python -m pip install -r requirements.txt
-python app.py --db C:\figure\sqlite\figure.sqlite3
-```
-
-ブラウザで http://127.0.0.1:5000/ を開く。DOS窓を閉じず、停止はCtrl+C。
-YouTube自動検索を使うときは `--youtube-search` を追加する。標準は無効。
-OpenAIはOKEY、YouTubeはYKEYを同じDOS窓の環境変数に設定して起動する。
-APIキーを第三者へ送ったり、GitHubへ登録しない。
-Cloud Runでは公開URLへアクセスすればよく、利用者側の起動操作は不要。
 
 ## 12. 制約と運用範囲
 
